@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form action="" class="login-body">
+      <div class="login-hd">
+        <img src="../images/shopex.png" alt="shopex" class="logo">
+      </div>
+      <div class="center-wrap" id="centeWrapr">
+        <div class="login-center">
+          <div class="bd-logo">
+            <img src="../images/ecshop-logo.png" alt="">
+          </div>
+        </div>
+        <div class="z-bd">
+          <div class="login-panel">
+            <h3 class="panel-hd ck-link-blue"></h3>
+            <div class="controls first">
+              <span class="iconphone"><img src="../images/ren.jpg" alt=""></span>
+              <input type="text" name="username" placeholder="用户名" id="username"/>
+            </div>
+            <div class="controls two active">
+              <span class="iconphone"><img src="../images/suo.jpg" alt=""></span>
+              <input type="password" name="password" placeholder="密码" id="psw"/>
+            </div>
+            <div class="controls third active">
+              <span class="iconphone"><img src="../images/yan.jpg" alt=""></span>
+              <input type="text" name="captcha" placeholder="验证码" class="capital"/>
+              <div id="number_div">
+                <span><img src="http://www.doudoufei.top/shops/admin/index.php?act=captcha&0.4770351643722788" alt="验证码"  align="bottom" style="cursor:pointer;" title="看不清可单击图片刷新" onclick="this.src='http://www.doudoufei.top/shops/admin/index.php?act=captcha&d='+Math.random();" id="zhen"/></span>
+              </div>
+            </div>
+            <div class="controls last">
+              <input type="button" class="btn-a" value="登录" onclick="loginFunc()"/>
+            </div>
+            <div class="controls bside">
+              <input type="checkbox" style="border:none;">
+              <label for="remember">保存登录信息</label>
+              <a href="" class="link-forget cl-link-blue">忘记密码?</a>
+              <a href="" class="link-home cl-link-blue">去店铺首页>></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript">
+    function loginFunc() {
+      $.ajax({
+        url: "/loginAction",
+        type: "get",
+        data: {
+          username: $("#username").val(),
+          psw: $("#psw").val(),
+        },
+        success: function(res) {
+          alert(res);
+          location.href = "/shop";
+        }
+      })
+    }
+  </script>
+</html>

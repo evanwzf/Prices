@@ -1,0 +1,29 @@
+*{margin: 0;padding: 0;}
+body{color: #192E32;font:12px Microsoft Yahei, "sans-serif", "Arial", "Verdana";}
+img{border:0;}
+a{text-decoration: none;}
+ul,li{list-style: none;display: list-item;text-align: -webkit-match-parent;}
+input,textarea{outline: 0;}
+table{display: table;border-collapse: separate;border-spacing: 2px;border-color: gray;}
+tbody{display: table-row-group;vertical-align: middle;border-color: inherit;}
+tr{display: table-row;vertical-align: inherit;border-color: inherit;}
+option{font-weight: normal;display: block;white-space: pre;min-height: 1.2em;padding: 0 2px 1px;}
+
+#main-frame{width: 1042px;height: 1050px;border: 0;}
+#head{border-bottom: 1px solid #ccc;color: #333;font-weight: normal;padding: 7px 10px;margin: 0 0 10px 0;overflow: hidden;}
+#head span{zoom: 1;}
+#head .action-span a{float: right;height: 26px;line-height: 26px;padding: 0 10px 0 23px;background: #c43926 url(../images/icon_add02.gif) no-repeat 6px center;border-radius: 3px;color: #fff;font-size: 13px;font-weight: normal;text-align: center;cursor: pointer;}
+#head .action-span1{color: #4c4c4c;font-size: 18px;font-weight: normal;}
+#head a{color: #333;}
+.tab-div{background: #f3f3f3;border:1px solid #d7d7d7;margin: 0 0 10px 0;padding: 1px;}
+#tabbar-div{margin-top: 0;background: #efefef;padding-left: 10px;height: 39px;}
+.tab-front{background: #fefefe;height: 39px;line-height: 39px;display: block;float: left;padding: 0 20px;text-align: center;font-weight: bold;cursor: pointer;}
+#tabbar-div span{padding: 0 20px;text-align: center;font-size: 13px;float: left;display: block;color: #787878;line-height: 39px;cursor: pointer;}
+#tabbody-div{padding: 10px;background: #fefefe;}
+td.label{text-align: right;vertical-align: top;font-weight: bold;padding: 5px 1em;width: 30%;line-height: 30px;}
+.goods_info input[type='text'], .goods_info select{margin: 5px 0;}
+#tabbody-div img{vertical-align: middle;}
+span.require-field{margin-left: 1em;font: 12px verdana;color: #FF0000;}
+.button-div{text-align: center;padding: 3px 0;}
+input.button{padding: 5px 15px 5px;margin: 2px 2px;border:none;background: #ff3f3f;color: #fff;cursor: pointer;border-radius: 3px;}
+a.special:link,a.special:visited{margin: 0 5px;padding: 1px 5px;border:1px solid #91C4D0;border-right: 2px solid #278296;border-bottom: 2px solid #278296;background: #DDEEF2;font-weight: 400;color: #335B64;}

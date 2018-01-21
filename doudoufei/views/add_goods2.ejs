@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/shop2.css">
+</head>
+<body>
+    <!--商品管理-->
+        <h1 id="head">
+            <span class="action-span"><a href="">添加新商品</a></span>
+            <span class="action-span1"><a href="">ECSHOP 管理中心</a></span>
+            <span id="search_id" class="action-span1"> - 商品列表</span>
+            <span class="help_sub"><a href=""><img src="../images/jnsy.png" alt=""></a></span>
+        </h1>
+        <div class="tab-div">
+            <div id="tabbar-div">
+                <p>
+                    <span class="tab-front" id="general-tab">通用信息</span>
+                    <span class="tab-back" id="detail-tab">详细描述</span>
+                    <span class="tab-back" id="mix-tab">其他信息</span>
+                    <span class="tab-back" id="proper-ties-tab">商品属性</span>
+                    <span class="tab-back" id="gallery-tab">关联商品</span>
+                    <span class="tab-back" id="linkgoods-tab">商品相册</span>
+                    <span class="tab-back" id="groupgoods-tab">配件</span>
+                    <span class="tab-back" id="article-tab">关联文章</span>
+                </p>
+            </div>
+            <!--tab body-->
+            <div id="tabbody-div">
+                <form action="">
+                    <table id="general-table" class="goods_info" width="90%" align="center" style="display:table;">
+                        <tbody>
+                            <tr>
+                                <td class="label">商品名称:</td>
+                                <td><input type="text" id="goods_name" name="goods_name" value style="float:left;width:191px;height:18px;" size="30">
+                                    <div id="font-color" style="float:left;margin:10px 0 0 5px;">
+                                        <img src="../images/color_selecter.gif" alt="" style="margin-top:-7px;">
+                                    </div>
+                                    &nbsp;
+                                    <select name="goods_name_style" id="">
+                                        <option value="字体样式">字体样式</option>
+                                    </select>
+                                    <span class="require-field">*</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    <a href="" title="点击此处查看提示信息">
+                                        <img src="../images/notice.gif" width="16" height="16" border="0" alt="点击此处查看提示信息">
+                                    </a>商品货号:   
+                                </td>
+                                <td>
+                                    <input type="text" id="goods_sn" name="goods_sn" value size="20"><br>
+                                    <span class="notice-span" style="display:block;" id="noticeGoodSN">如果您不输入商品货号，系统会自动生成一个唯一货号。</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">商品分类:</td>
+                                <td>
+                                    <select name="cat_id">
+                                        <option value="0">请选择</option>
+                                        <option value=132>钻石</option>
+                                        <option value=154>&nbsp;&nbsp;&nbsp;&nbsp;内衣</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家居服</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家裤</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;套装</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;袜子</option>
+                                        <option value=154>&nbsp;&nbsp;&nbsp;&nbsp;长衫</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;短袖</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长袖</option>
+                                        <option value=154>&nbsp;&nbsp;&nbsp;&nbsp;T恤</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;背心</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长袖T恤</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;短袖T恤</option>
+                                        <option value=154>&nbsp;&nbsp;&nbsp;&nbsp;裤子</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;西裤</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;牛仔裤</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长裤</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;短裤裤</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;休闲裤</option>
+                                        <option value=154>&nbsp;&nbsp;&nbsp;&nbsp;外套</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;羽绒服</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大衣</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;皮草</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;夹克</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;西服</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;卫衣</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;棉衣</option>
+                                        <option value=158>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;风衣</option>
+                                    </select>
+                                    <a href="" title="添加分类" class="special">添加分类</a>
+                                    <span id="brand_add" style="display:none;">
+                                        <input type="text" size="15" name="addedBrandName">
+                                        <a href="javascript:void(0)" class="special">确定</a>
+                                        <a href="javascript:void(0)" title="分类管理"  class="cpecial">品牌管理</a>
+                                        <a href="javascript:void(0)" title="隐藏" class="special"><<</a>
+                                    </span>
+                                    <span class="require-field">*</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">扩展分类</td>
+                                <td><input type="button" value="添加" class="button"></td>
+                            </tr>
+                            <tr>
+                                <td class="label">商品品牌</td>
+                                <td>
+                                    <select name="brand_id">
+                                        <option value="0">所有品牌</option>
+                                        <option value="44">花艺年华</option>
+                                        <option value="44">EVENY</option>
+                                        <option value="44">圣迪奥</option>
+                                        <option value="44">韩都衣舍</option>
+                                        <option value="44">betu百图</option>
+                                        <option value="44">艾福斯</option>
+                                        <option value="44">太平鸟</option>
+                                        <option value="44">空间大师</option>
+                                        <option value="44">美好家</option>
+                                    </select>
+                                    <a href="javascript:void(0)" title="添加品牌" class="special">添加品牌</a>
+                                    <span id="brand_add" style="display:none;">
+                                        <input type="text" size="15" name="addedBrandName">
+                                        <a href="javascript:void(0)" onclick="addBrand()" class="special">确定</a>
+                                        <a href="javascript:void(0)" onclick="return goBrandPage();" title="品牌管理" class="cpecial">品牌管理</a>
+                                        <a href="javascript:void(0)" onclick="hideBrandDiv()" title="隐藏" class="special"><<</a>
+                                    </span>
+                                    <span class="require-field">*</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">本店售价：</td>
+                                <td>
+                                    <input type="text" id="price" name="price" value="0" size="20">
+                                    <input type="button" value="按市场价计算">
+                                    <span class="require-field">*</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    <a href="" title="点击此处查看提示信息">
+                                        <img src="../images/notice.gif" width="16" height="16" border="0" alt="点击此处查看提示信息">
+                                    </a>会员价格:   
+                                </td>
+                                <td>
+                                    注册用户<span id="nrank_1"></span>
+                                    <input type="text" id="rank_1" name="user_price[]" value="1" onkeyup="if(parseInt(this.value)<-1){this.value='-1';};set_price_note(1)" size="8" class="input02">
+                                    代销用户<input type="text" id="rank_1" name="user_price[]" value="1" onkeyup="if(parseInt(this.value)<-1){this.value='-1';};set_price_note(1)" size="8" class="input02">
+                                    vip<input type="text" id="rank_1" name="user_price[]" value="1" onkeyup="if(parseInt(this.value)<-1){this.value='-1';};set_price_note(1)" size="8" class="input02"><br>
+                                    <span class="notice-span" style="display:block" id="noticeUserPrice">会员价为-1时表示会员价格按会员等级折扣率计算。你也可以为每个等级指定一个固定价格</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    <a href="javascript:showNotice('volumePrice');" title="点击此处查看提示信息">
+                                        <img src="../images/notice.gif" width="16" height="16" border="0" alt="点击此处查看提示信息">
+                                    </a>商品优惠价格:   
+                                </td>
+                                <td>
+                                    <table width="100%" id="tbody-volume" align="center">
+                                        <a href="javascript:;">[+]</a>优惠数量
+                                        <input type="text" name="volume_number[]" size="8" value class="input02">优惠价格
+                                        <input type="text" name="volume_number[]" size="8" value class="input02">
+                                    </table>
+                                    <span class="notice-span" style="display:block" id="volumePrice">购买数量达到优惠数量时享受的优惠价格</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">市场售价：</td>
+                                <td>
+                                    <input type="text" name="market_price" value="0" size="20">
+                                    <input type="button" value="取整数">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">虚拟销量：</td>
+                                <td>
+                                    <input type="text" id="virtual_sales" name="virtual_sales" value="0" size="20">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    <a href="javascript:showNotice('volumePrice');" title="点击此处查看提示信息">
+                                        <img src="../images/notice.gif" width="16" height="16" border="0" alt="点击此处查看提示信息">
+                                    </a>赠送消费积分数:   
+                                </td>
+                                <td>
+                                    <input type="text" name="give_integral" value="-1" size="20">
+                                    <span class="notice-span" style="display:block;" id="giveIntegral">购买该商品时赠送消费积分数,-1表示按商品价格赠送</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    <a href="javascript:showNotice('volumePrice');" title="点击此处查看提示信息">
+                                        <img src="../images/notice.gif" width="16" height="16" border="0" alt="点击此处查看提示信息">
+                                    </a>赠送等级积分数:   
+                                </td>
+                                <td>
+                                    <input type="text" name="rank_integral" value="-1" size="20">
+                                    <span class="notice-span" style="display:block;" id="rankIntegral">购买该商品时赠送等级积分数,-1表示按商品价格赠送</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    <a href="javascript:showNotice('volumePrice');" title="点击此处查看提示信息">
+                                        <img src="../images/notice.gif" width="16" height="16" border="0" alt="点击此处查看提示信息">
+                                    </a>积分购买金额:   
+                                </td>
+                                <td>
+                                    <input type="text" name="integral" value="0" size="20">
+                                    <span class="notice-span" style="display:block;" id="noticPoints">(此处需填写金额)购买该商品时最多可以使用积分的金额</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    <label for="is_promote">
+                                        <input type="checkbox" id="is_promote" name="is_promote" value="1">促销价：
+                                    </label>
+                                </td>
+                                <td id="promote_3">
+                                    <input type="text" id="promote_1" name="promote_price" value="0" size="20" disabled>
+                                </td>
+                            </tr>
+                            <tr id="promote_4">
+                                <td class="label" id="promote_5">促销日期：</td>
+                                <td id="promote_6">
+                                    <input type="text" name="promote_start_date" id="promote_start_date" size="12" value="2018-01-17" readonly="readonly">
+                                    <input type="button" name="selbtn1" id="selbtn1" onclick="return showCalendar('promote_start_date', '%Y-%m-%d', false, false, 'selbtn1');" value="选择" class="button" disabled>-
+                                    <input type="text" name="promote_end_date" id="promote_end_date" size="12" value="2018-02-17" readonly="readonly">
+                                    <input type="button" name="selbtn2" id="selbtn2" onclick="return showCalendar('promote_end_date', '%Y-%m-%d', false, false, 'selbtn2');" value="选择" class="button" disabled>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">上传商品图片：</td>
+                                <td>
+                                    <input type="file" id="img" name="goods_img" size="35">
+                                    <img src="../images/no.gif" alt=""><br>
+                                    <input type="text" size="40" value="商品图片外部URL" style="color:#aaa;" onfocus="if (this.value == '商品图片外部URL'){this.value='http://';this.style.color='#000';}" name="goods_img_url">
+                                </td>
+                            </tr>
+                            <tr id="auto_thumb_1">
+                                <td class="label">上传商品缩略图：</td>
+                                <td id="auto_thumb_3">
+                                    <input type="file" name="goods_thumb" size="35" disabled>
+                                    <img src="../images/no.gif" alt=""><br>
+                                    <input type="text" size="40" value="商品缩略图外部URL" style="color:#aaa;" onfocus="if (this.value == '商品缩略图外部URL'){this.value='http://';this.style.color='#000';}" name="goods_thumb_url"><br>
+                                    <label for="auto_thumb">
+                                        <input type="checkbox" id="auto_thumb" name="auto_thumb" checked="true" value="1">自动生成商品缩略图
+                                    </label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table width="90%" id="mix-table" style="display:none;" align="center">
+                        <tbody>
+                            <tr>
+                                <td class="label">商品重量：</td>
+                                <td>
+                                    <input type="text" name="goods_weight" value="20">
+                                    <select name="weight_unit">
+                                        <option value="1">千克</option>
+                                        <option value="0.001">克</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">
+                                    <a href="javascript:void(0)" title="点击此处查看提示信息;">
+                                        <img src="../images/notice.gif" width="16" height="16" border="0" alt="">
+                                    </a>商品库存数量：
+                                </td>
+                                <td>
+                                    <input type="text" name="goods_number" value="1" size="20">
+                                    <span class="notice-span" style="display:block" id="noticeStorage">
+                                        库存在商品为虚货或商品存在货品时为不可编辑状态，库存数值取决于其虚货数量或货品数量
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">库存警告数量：</td>
+                                <td>
+                                    <input type="text" name="warn_number" value="1" size="20">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">加入推荐:</td>
+                                <td>
+                                    <input type="checkbox" name="is_best" value="1">精品
+                                    <input type="checkbox" name="is_new" value="1">新品
+                                    <input type="checkbox" name="is_hot" value="1">热销
+                                </td>
+                            </tr>
+                            <tr id="alone_sale_1">
+                                <td class="label" id="alone_sale_2">上架：</td>
+                                <td>
+                                    <input type="checkbox" name="is_on_sale" value="1" checked="checked">
+                                     打勾表示允许销售，否则不允许销售。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">能作为普通商品销售：</td>
+                                <td>
+                                    <input type="checkbox" name="is_alone_sale" value="1" checked="checked">
+                                     打勾表示能作为普通商品销售，否则只能作为配件或赠品销售。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">是否为免运费商品</td>
+                                <td>
+                                    <input type="checkbox" name="is_shipping" value="1">
+                                     打勾表示此商品不会产生运费花销，否则按照正常运费计算。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">商品关键词：</td>
+                                <td>
+                                    <input type="text" name="keywords" value="" size="40">
+                                     用空格分隔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">商品简单描述：</td>
+                                <td>
+                                    <textarea name="goods_brief" cols="40" rows="3"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table">
+                                    <a href="" title="点击此处查看提示信息">
+                                        <img src="../images/notice.gif" alt="点击此处查看提示信息">
+                                    </a> 商家备注： 
+                                </td>
+                                <td>
+                                    <textarea name="seller_note" cols="40" rows="3"></textarea><br>
+                                    <span class="notice-span" style="display:block" id="noticeSellerNote">仅供商家自己看的信息</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="button-div">
+                        <input type="button" class="button" value="确定" onclick="upload()">
+                        <input type="reset" value="重置" class="button">
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+        $("#tabbar-div span").click(function(){
+          $("#tabbar-div span").eq($(this).index()).addClass("tab-front").siblings().removeClass("tab-front");
+          if($("#tabbar-div span").eq($(this).index()).addClass("tab-front")){
+              $("#tabbody-div>table").css("display","table")
+          }
+        });
+    });
+</script>
+<script type="text/javascript">
+    function upload() {
+		var form = new FormData(); // FormData是H5新特性
+		form.append("goods_name", document.getElementById("goods_name").value);
+        form.append("goods_sn", document.getElementById("goods_sn").value);
+        form.append("virtual_sales", document.getElementById("virtual_sales").value);
+		form.append("price", document.getElementById("price").value);
+		form.append("img", document.getElementById("img").files[0]);
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "/api/goods_upload");
+		xhr.onreadystatechange = function(res){
+			if (xhr.readyState==4 && xhr.status==200) {
+				console.log(xhr.responseText);
+				var res = JSON.parse(xhr.responseText);
+				alert(res.message);
+			}
+		}
+		xhr.send(form);
+	}
+</script>
+</html>

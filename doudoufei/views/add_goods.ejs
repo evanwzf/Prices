@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/shop.css">
+</head>
+<body>
+    <!--商品管理-->
+        <h1 id="head">
+            <span class="action-span"><a href="">添加新商品</a></span>
+            <span class="action-span1"><a href="">ECSHOP 管理中心</a></span>
+            <span id="search_id" class="action-span1"> - 商品列表</span>
+            <span class="help_sub"><a href=""><img src="../images/jnsy.png" alt=""></a></span>
+        </h1>
+        <!--商品搜索-->
+        <div class="form-div">
+            <form action="">
+                <img src="../images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH">
+                <!--分类-->
+                <select name="cat_id">
+                    <option value="0">所以分类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                </select>
+                <!--品牌-->
+                <select name="barnd_id">
+                    <option value="0">所以品牌&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                </select>
+                <!--推荐-->
+                <select name="intro_type">
+                    <option value="0">全部&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                </select>
+                <!--上架-->
+                <select name="is_on_sale">
+                    <option value="0">全部</option>
+                </select>
+                <!--关键字-->
+                关键字<input type="text" name="keyword" style="width:105px" id="hunt">
+                <!--<button class="button" onclick="seek();">搜索</button>-->
+                <input type="button" value="搜索" class="button" onclick="seek();">
+            </form>
+        </div>
+        <form action="">
+            <div class="list-div" id="listDiv">
+                <table cellpadding="3" cellspacing="1" class="l-list">
+                    <tbody>
+                        <tr>
+                            <th>
+                                <input type="checkbox">
+                                <a href="">编号</a>
+                                <img src="../images/sort_desc.gif" alt="">
+                            </th>
+                            <th><a href="">商品名称</a></th>
+                            <th><a href="">货号</a></th>
+                            <th><a href="">价格</a></th>
+                            <th><a href="">上架</a></th>
+                            <th><a href="">精品</a></th>
+                            <th><a href="">新品</a></th>
+                            <th><a href="">热销</a></th>
+                            <th><a href="">推荐排序</a></th>
+                            <th><a href="">库存</a></th>
+                            <th><a href="">虚拟销量</a></th>
+                            <th><a href="">操作</a></th>
+                        </tr>
+                    </tbody>
+                </table>
+       
+            </div>
+            <div id="turn-page">
+                总计<span id="totalRecords"> </span>
+                个记录 分为<span id="totalPages"> </span>
+                页 当前第<span id="pageCurrent">1</span>
+                页，每页<input type="text" size="3" id="pageSize" value="3" style="width:29px;height:18px;">
+                <span id="page-link">
+                    <a href="javascript:void(0);" onclick="fipage(1);">第一页</a>
+                    <a href="javascript:void(0);" onclick="fipage(-1);">上一页</a>
+                    <a href="javascript:void(0);" onclick="endPage(1)">下一页</a>
+                    <a href="javascript:void(0);" onclick="endPage(2)">最末页</a>
+                    <select id="gotoPage">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                </span>
+                </div>
+            <div>
+            <input type="hidden" name="act" value>
+            <select name="type">
+                <option value="0">请选择&nbsp;&nbsp;&nbsp;&nbsp;</option>
+            </select>
+            <input type="submit" value="确定" id="btnSubmit" name="btnSubmit" class="button" disabled="true">
+        </div>
+    </form>
+    <div id="footer">
+        共执行 7 个查询，用时 0.022917 秒，Gzip 已禁用，内存占用 3.556 MB<br>
+        版权所有 © 2005-2018 上海商派软件有限公司，并保留所有权利。
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+//模糊查询
+function seek(){
+    var seek = $("#hunt").val();
+    console.log($("#hunt").val())
+    menu(seek)
+}
+
+//点击跳转第一页和末尾页
+ function fipage(num){
+     $("#pageCurrent").html(num)
+        $("#pageCurrent").html(num||$("#gotoPage option:last").val())
+        menu()
+    }
+    function endPage(num){
+        
+        if($("#pageCurrent").html()*1+num>$("#gotoPage option:last").val()){
+            
+            alert("已经是最后一页")
+        }else if($("#pageCurrent").html()*1+num==0){
+            alert("已经是第一页")
+        }else{
+            $("#pageCurrent").html($("#pageCurrent").html()*1+num)
+            console.log($("#pageCurrent").html())
+            menu()
+        }
+    }
+
+    // function remove(){
+    //     $("#remove").
+    // }
+
+
+    menu()
+     //请求数据
+    function menu(seek){
+        $.ajax({
+            url:"/goods",
+            type:"get",
+            data:{
+                condition:seek||"",
+                perPageCnt:$("#pageSize").val(),
+                pageNO : $("#pageCurrent").html()
+            },
+            success:function(res){
+                console.log(res)
+                var perPageCnt = $("#pageSize").val()
+                var count = res.total;                      //总数
+                var data = res.data;
+
+                var allPage = Number(Math.ceil(count/perPageCnt))  //有多少页
+                var nowPage = $("#pageCurrent").html() 
+                $("#totalRecords").html(count)                       //总个数
+                $("#totalPages").html(allPage)  
+                
+
+                $("#gotoPage option").remove()
+                for(j=0;j<allPage;j++){
+                    var s= j+1;
+                    var sele = 
+                    `<option value="${s}" >${s}</option>`
+                    $("#gotoPage").append(sele)
+                    //默认选中的option，和当前页相关联
+                      $("#gotoPage option[value="+nowPage+"]").attr("selected",true);
+
+                }
+                $(".tr").remove()   //每次请求ajax之前都得先删除商品表
+                for(var i in data){
+                    console.log(data[i])
+                    var td=`
+                    <tr class="tr">
+                        <td style="background-color:rgb(255, 255, 255)" class="first-cell"><input type="checkbox"/>${data[i]._id}</td>
+                        <td style="background-color:rgb(255, 255, 255)">${data[i].goods_name}</td>
+                        <td style="background-color:rgb(255, 255, 255)" align="center">${data[i].goods_sn}</td>
+                        <td style="background-color:rgb(255, 255, 255)" align="center">${data[i].price}</td>
+                        <td style="background-color:rgb(255, 255, 255)" align="center"><img src="/images/yes.gif" /></td>
+                        <td style="background-color:rgb(255, 255, 255)" align="center"><img src="/images/no.gif" /></td>
+                        <td style="background-color:rgb(255, 255, 255)" align="center"><img src="/images/no.gif" /></td>
+                        <td style="background-color:rgb(255, 255, 255)" align="center"><img src="/images/no.gif" /></td>
+                        <td style="background-color:rgb(255, 255, 255)" align="center"><img src="/images/yes.gif" /></td>
+                        <td style="background-color:rgb(255, 255, 255)" align="center"></td>
+                        <td style="background-color:rgb(255, 255, 255)" align="center">${data[i].virtual_sales}</td>
+                        <td style="background-color:rgb(255, 255, 255)" align="center">
+                            <a  href="">
+                                <img src="/images/icon_view.gif" />
+                            </a>
+                            <a  href="/add_goods2">
+                                <img src="/images/icon_edit.gif"/>
+                            </a>
+                            <a  href="">
+                                <img src="/images/icon_copy.gif"/>
+                            </a>
+                            <a id="remove"  href="" onclick="remove()">
+                                <img src="/images/icon_trash.gif"/>
+                            </a>
+                        </td>
+                    </tr>`
+                    $(".l-list").append(td)
+                }
+            }
+        })
+    }
+</script>
+</html>
